@@ -9,7 +9,9 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          <a class="nav-link" routerLink="/catalogue">Art Catalogue</a>
           <a class="nav-link" routerLink="/favourites">Favourites</a>
+          <a class="nav-link" routerLink="/documentation">How to Use?</a>
           <a class="nav-link" *ngIf="!this.auth.isLogIn" routerLink="/signUp">Sign up</a>
           <a class="nav-link" *ngIf="!this.auth.isLogIn" routerLink="/login">Login</a>
           <a class="nav-link" *ngIf="this.auth.isLogIn" (click)="logOut()">Logout</a>

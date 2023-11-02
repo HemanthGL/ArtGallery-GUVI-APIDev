@@ -16,6 +16,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ArtViewComponent } from './components/art-view/art-view.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HomeComponent } from './components/home/home.component';
+import { DocumentationComponent } from './components/documentation/documentation.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HomeComponent } from './components/home/home.component';
     ArtViewComponent,
     CarouselComponent,
     HomeComponent,
+    DocumentationComponent,
   ],
   imports: [
     BrowserModule,

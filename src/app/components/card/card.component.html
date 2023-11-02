@@ -4,16 +4,16 @@
     <div class="card-body text-center">
       <p class="card-title lead">
         <b>
-            {{art.title | slice: 0 : 25}} {{art.id}}
+            {{art.title | slice: 0 : 25}}
         </b>
     </p>
 
-      <div class="card-sub ms-2 d-flex justify-content-between me-2 mt-2">
+      <div class="card-sub ms-2 d-flex justify-content-between me-2 mt-2 gap-3">
           <div class="details text-start">
               <h5 class="card-title ">{{art.artist_display | slice: 0 : 25}}</h5>
               <h5 class="card-title ">{{art.place_of_origin | slice: 0 : 25}}</h5>
           </div>
-          <div class="favourite mt-2 d-flex flex-wrap gap-3" id="icon">
+          <div class="favourite mt-2 d-flex flex-wrap gap-2" id="icon">
             <div class="collapsible-header" (click)="favToggle($event)">
                 <i *ngIf="showFirst && auth.isLogIn" class="fa-solid fa-heart fa-lg text-danger"></i>
                 <i *ngIf="!auth.isLogIn || !showFirst" class="fa-regular fa-heart fa-lg"></i>

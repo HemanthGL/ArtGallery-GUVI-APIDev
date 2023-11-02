@@ -15,8 +15,8 @@ export class ListingComponent {
 
   queryVal: string;
   page_no: number = 1;
-  page_size: number = 4;
-  page_array: Array<number> = [4, 8, 12, 24]
+  page_size: number = 6;
+  page_array: Array<number> = [6, 8, 12, 24]
   total: number = 100;
 
   showFirst: Boolean = false;

@@ -1,6 +1,6 @@
-<div class="container-fluid d-flex justify-content-center align-items-center vh-50 pt-5">
-    <div class="bg-primary-subtle pt-5 ps-4 pe-4 pb-5 text-center mt-5">
-        <p class="display-4 text-primary">Create New Account</p>
+<div class="container-fluid d-flex justify-content-center align-items-center bg-dark vh-100 pt-5 ">
+    <div class="backg pt-5 ps-4 pe-4 pb-5 text-center mt-5 rounded">
+        <p class="display-4 text-light">Create New Account</p>
         <form class="mt-5 ms-4 me-4 text-start" [formGroup] = "registerF">
             <div class="mt-5 mb-4">
                 <label for="uname" class="h4">Username</label>
@@ -26,7 +26,7 @@
             
 
             <div class="submit text-center mt-5 pt-5">
-                <input type="button" [disabled] = "registerF.invalid" value="LogIn" class="btn btn-primary btn-xxl" (click)="onSubmit($event)">
+                <input type="button" [disabled] = "registerF.invalid" value="LogIn" class="btn btn-light btn-xxl" (click)="onSubmit($event)">
             </div>
         </form>
     </div>
