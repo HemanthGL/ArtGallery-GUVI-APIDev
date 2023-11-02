@@ -5,6 +5,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import { ArtViewComponent } from './components/art-view/art-view.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
+    path:'home',
+    component: HomeComponent
+  },
+  {
+    path: 'catalogue',
     component: ListingComponent
   },
   {
