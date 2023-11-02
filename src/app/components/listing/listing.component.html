@@ -1,1 +1,28 @@
-<p>listing works!</p>
+<div class="container-fluid bg-dark">
+  <div class="container-fluid mb-5 w-50 d-flex align-items-center gap-4" (keypress)="updateSearch($event)">   
+      <input type="text" name="" id="" [formControl] = "searchVal" class="form-control " placeholder="Search Here  (Artists, Paintings, etc.)"> 
+      <span class=" btn rounded border border-primary p-2 bg-primary-subtle">
+          <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+  
+      </span>
+  </div>
+    
+  <!-- <div *ngIf="artData != undefined && artData.id != undefined"> -->
+    <main class="container-fluid d-flex justify-content-evenly cards flex-wrap gap-4 mb-5">
+      <div *ngFor="let item of artData" >
+          <app-card [art] = "item">
+          </app-card>
+      </div>
+    </main>
+  <!-- </div> -->
+    
+    <mat-paginator
+        (page)="handlePageEvent($event)"
+        [length]="total"
+        [pageSize]="page_size"
+        [showFirstLastButtons]="true"
+        [pageSizeOptions]="page_array"
+        [pageIndex]="page_no-1"
+        aria-label="Select page">
+    </mat-paginator>
+</div>

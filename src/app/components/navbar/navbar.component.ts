@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  constructor(public auth: AuthService, private fav: CartService){}
 
+  logOut():void{
+    if (!this.auth.isLogIn){
+      console.warn('Bug in navbar, logout appearing when no needed')
+    } else {
+      this.auth.isLogIn = false;
+      this.auth.reloadToStorage()
+      this.auth.userDetails = null;
+    }
+  }
 }

@@ -1,0 +1,30 @@
+<div class="card" style="width: 18rem;">
+    <img #elseBlock *ngIf="!showSpinner; else elseBlock" src="{{img_src_pre + art.image_id + img_src_suf}}" class="card-img-top" (error)="toggleImgFailMode()" alt="...">
+    <ng-template #elseBlock><mat-spinner class="mx-auto" style="margin-top: 36%; margin-bottom: 36%;"></mat-spinner></ng-template>
+    <div class="card-body text-center">
+      <p class="card-title lead">
+        <b>
+            {{art.title | slice: 0 : 25}} {{art.id}}
+        </b>
+    </p>
+
+      <div class="card-sub ms-2 d-flex justify-content-between me-2 mt-2">
+          <div class="details text-start">
+              <h5 class="card-title ">{{art.artist_display | slice: 0 : 25}}</h5>
+              <h5 class="card-title ">{{art.place_of_origin | slice: 0 : 25}}</h5>
+          </div>
+          <div class="favourite mt-2 d-flex flex-wrap gap-3" id="icon">
+            <div class="collapsible-header" (click)="favToggle($event)">
+                <i *ngIf="showFirst && auth.isLogIn" class="fa-solid fa-heart fa-lg text-danger"></i>
+                <i *ngIf="!auth.isLogIn || !showFirst" class="fa-regular fa-heart fa-lg"></i>
+            </div>
+            <div class="view-page" routerLink="/view/{{art.id}}">
+              <i class="fa-regular fa-eye fa-lg"></i>
+            </div>
+            <div class="share-page" (click)="share(art.id)">
+              <i class="fa-solid fa-share fa-lg"></i>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

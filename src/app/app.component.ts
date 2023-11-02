@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ArtsService } from './services/arts.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { IMG_API_PRE, IMG_API_SUF } from 'src/constants/constants';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-root',
@@ -9,22 +12,5 @@ import { ArtsService } from './services/arts.service';
 export class AppComponent {
   title = 'ArtGallery';
 
-  constructor(private artServ: ArtsService){
-
-  }
-  ngOnInit(){
-    this.getData();
-  }
-  artData:any;
-  getData(){
-    this.artData = this.artServ.getAPIData().subscribe((data:any) => {
-      console.log(data)
-      console.log('in subs')
-      this.artData = data.data
-      // this.dataload = data.data;
-      // console.log('data load: ', this.dataload)
-      // return data.data;
-    });
-    console.log('data is : ', this.artData)
-  }
+  
 }

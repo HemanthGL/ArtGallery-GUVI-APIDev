@@ -1,0 +1,31 @@
+@media screen and (max-width: 992px) {
+    #content-container{
+        img{
+            // margin-left: 30vw;
+        }
+    }
+    #outer-container{
+        width: 100%;
+        justify-content: center;
+    }
+    
+}
+@media screen and (max-width: 768px) {
+    #content-container{
+        flex-direction: column;
+    }
+    #outer-container{
+        width: 100%;
+        justify-content: center;
+    }
+    
+    #content-container img{
+        min-width: 85vmin!important;
+        min-height: 60vmin!important;
+        max-height: 80vh!important;
+    }
+
+    #container-right{
+        margin-right: 0vw!important;
+    }
+}

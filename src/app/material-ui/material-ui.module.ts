@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import {MatExpansionModule, matExpansionAnimations} from '@angular/material/expansion'
 
 @NgModule({
   declarations: [],
@@ -9,7 +10,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CommonModule
   ],
   exports:[
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatExpansionModule
   ]
 })
 export class MaterialUiModule { }

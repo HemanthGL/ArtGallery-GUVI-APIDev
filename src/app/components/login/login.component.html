@@ -1,0 +1,28 @@
+
+<div class="container-fluid d-flex justify-content-center align-items-center vh-50">
+    <div class="bg-primary-subtle pt-5 ps-4 pe-4 pb-5 text-center w-50 mt-5">
+        <p class="display-4 text-primary">Log In</p>
+        <form [formGroup]="fg" class="mt-5 ms-4 me-4 text-start">
+            <div class="mt-5 mb-4">
+                <label for="uname" class="h4">Username</label>
+                <input type="text" name="uname"  formControlName="userName" class="form-control">
+                <div style="color: red;" *ngIf="fg.get('userName')?.dirty && fg.get('userName')?.errors?.['minlength']">Username Invalid [Min. Length = 4]</div>
+                <div style="color: red;" *ngIf="fg.get('userName')?.dirty && fg.get('userName')?.errors?.['maxlength']">Username Invalid [Max Length = 15]</div>
+            </div>
+    
+            <div class="mb-4">
+                <label for="pwd" class="h4">Password</label>
+                <input type="password" formControlName="password" name="pwd" class="form-control">
+                <div style="color: red;" *ngIf="fg.get('password')?.dirty && fg.get('password')?.errors?.['minlength']">Password Invalid [Min. 8 character required]</div>
+            </div>
+    
+            <div class="">
+                <a class="lead" routerLink="/signUp" style="text-decoration: none;">Create New Account?</a>
+            </div>
+
+            <div class="submit text-center mt-5 pt-5">
+                <input type="button" value="LogIn" [disabled]="fg.invalid" class="btn btn-primary btn-xxl" (click) = "onSubmit($event)">
+            </div>
+        </form>
+    </div>
+</div>

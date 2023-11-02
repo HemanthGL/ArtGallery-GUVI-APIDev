@@ -1,0 +1,50 @@
+ea8c5d62-6ce8-88e8-feb1-e0053cf534c5
+
+Priest and Boy
+
+433 - 456
+
+
+4
+
+1753b638-d4fb-8e45-3db9-92dde7f053da
+
+
+
+11144
+516d9e71-6e59-1e6d-2db0-f29f3b40dd6c
+Orphrey Band
+nxt page
+
+ 
+614
+36a3f0f7-9bda-2c93-fee8-7c264d5ce01f
+Amphoriskos (Container for Oil)
+
+Lander page
+Share Feature
+View Art Feature
+Spinner for Loading / Alt Img for failed img loads
+
+
+"title": "Starry Night and the Astronauts",
+
+alt_text": "Abstract painting composed of small vertical dabs of multiple shades of blue with a small area of similar strokes of red, orange, and yellow in the upper right."
+
+in alt
+
+"artist_display": "Alma Thomas\nAmerican, 1891–1978",
+
+"place_of_origin": "United States",
+"description": "<p>After decades as a representational painter, in her seventies Alma Thomas turned to abstraction, creating shimmering, mosaic-like fields of color with rhythmic dabs of paint that were often inspired by forms from nature. The artist had been fascinated with space exploration since the late 1960s, and her later paintings often referenced America’s manned Apollo missions to the moon. Although she had never flown, Thomas began to paint as if she were in an airplane, capturing what she described as shifting patterns of light and streaks of color. “You look down on things,” she explained. “You streak through the clouds so fast. . . . You see only streaks of color.”</p>\n<p><em>Starry Night and the Astronauts</em> evokes the open expanse and celestial patterns of a night sky, but despite its narrative title, the work could also be read as an aerial view of a watery surface, playing with our sense of immersion within an otherwise flat picture plane. The viewer is immersed not only in the sense of organic expanse that this painting achieves, however, but also in an encounter with Thomas’s process: the surface here is clearly constructed stroke by stroke. Meanwhile, the glimpses of raw canvas between each primary-colored mark seem as vivid as the applied paint itself—almost as if the composition were backlit. Thomas relied on the enlivening properties of color throughout her late-blooming career. “Color is life,” she once proclaimed, “and light is the mother of color.” This painting was created in 1972, when the artist was eighty. In the same year, she became the first African American woman to receive a solo exhibition at a major art museum, the Whitney Museum of American Art in New York City.</p>\n",
+
+"dimensions": "152.4 × 134.6 cm (60 × 53 in.)",
+
+"medium_display": "Acrylic on canvas",
+"department_title": "Contemporary Art",
+
+"artist_title": "Alma Thomas",
+
+"publication_history": null,
+"exhibition_history": null,
+"credit_line": "Purchased with funds provided by Mary P. Hines in memory of her mother, Frances W. Pick",
