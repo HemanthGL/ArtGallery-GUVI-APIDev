@@ -10,12 +10,13 @@ import { ICardDet } from 'src/interfaces/ICardDet';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
+
 export class CardComponent {
   @Input() art!: ICardDet
 
   showSpinner: boolean = false;
   showFirst: Boolean = true;
-  // this.cartServe.checkInCart(this.art.id!); // update based on localstorage
+  
   img_src_pre: string = IMG_API_PRE;
   img_src_suf: string = IMG_API_SUF;
 
@@ -34,10 +35,14 @@ export class CardComponent {
             this.showFirst = true;
         }
       } catch(e: any){
-        console.warn('error found', e)
+        console.warn('Error found, Art Data Undefined', e)
       }
     }
   }
+
+  /**
+   * @description initialise Like/Favourite Status based on whether logged in, liked or not
+   */
   ngOnInit(){
     if (!this.auth.isLogIn){
       this.showFirst = false
@@ -46,6 +51,11 @@ export class CardComponent {
     this.showFirst = this.cartServe.checkInFav(this.art.id)
   }
 
+  /**
+   * 
+   * @param event Click event on the Like/Favourite Button
+   * @description updates the Favourite array, for like/unlike, updating favourite status
+   */
   favToggle(event: MouseEvent){
     if (!this.auth.isLogIn){
       this.showFirst = false
@@ -59,10 +69,18 @@ export class CardComponent {
     }
   }
 
+  /**
+   * @description when image is not available, activates the spinner from Angular Material
+   */
   toggleImgFailMode(){
     this.showSpinner = true;
   }
 
+  /**
+   * 
+   * @param id Unique data ID for the artwork
+   * @description for sharing the artwork on various social networks, etc.
+   */
   share(id: number){
     if(navigator.share){
       navigator.share({

@@ -10,6 +10,9 @@ import { CartService } from 'src/app/services/cart.service';
 export class NavbarComponent {
   constructor(public auth: AuthService, private fav: CartService){}
 
+  /**
+   * @description handles the logout, by clearing the userDetails storage, updating the login status state, etc.
+   */
   logOut():void{
     if (!this.auth.isLogIn){
       console.warn('Bug in navbar, logout appearing when no needed')

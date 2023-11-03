@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { isEmpty } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import { IUserDet } from 'src/interfaces/IUserDet';
@@ -14,6 +15,9 @@ export class FavouritesComponent {
   favouritesArray: Array<number>;
   
   favData: Array<any> = [];
+
+  isEmptyFav: boolean = true;
+
   constructor(private favServe: CartService, private router: Router, private cartServe: CartService, private auth: AuthService){
     this.favouritesArray = cartServe.getFavArray();
 
@@ -23,17 +27,28 @@ export class FavouritesComponent {
     } else {
       this.favouritesArray = auth.userDetails!.favourites;
       // Conditional Render of Empty Favourites
+      if (this.favouritesArray){
+        this.isEmptyFav = false;
+      }
     }
 
   }
 
+  /**
+   * @description gets the art data of ids in the favourites array on initialisation of component
+   */
   ngOnInit(){
     this.getData()
   }
 
+
+  /**
+   * @description gets the data from the API for each ID stored in Favourites array
+   */
   getData(){
     
     let art: any;
+    
     // embed in for array for each in array
     for (let id of this.favouritesArray){
       this.cartServe.getFavData(id).subscribe((data: any) => {

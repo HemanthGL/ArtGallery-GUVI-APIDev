@@ -1,5 +1,5 @@
 <div class="card" style="width: 18rem;">
-    <img #elseBlock *ngIf="!showSpinner; else elseBlock" src="{{img_src_pre + art.image_id + img_src_suf}}" class="card-img-top" (error)="toggleImgFailMode()" alt="...">
+    <img #elseBlock *ngIf="!showSpinner; else elseBlock" src="{{img_src_pre + art.image_id + img_src_suf}}" class="card-img-top" (error)="toggleImgFailMode()" alt="{{ art.thumbnail.alt_text }}">
     <ng-template #elseBlock><mat-spinner class="mx-auto" style="margin-top: 36%; margin-bottom: 36%;"></mat-spinner></ng-template>
     <div class="card-body text-center">
       <p class="card-title lead">

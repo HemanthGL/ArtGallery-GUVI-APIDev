@@ -21,25 +21,29 @@ export class ListingComponent {
 
   showFirst: Boolean = false;
 
-  // dataLoaded!: Promise<boolean>;
-
   constructor(private artServ: ArtsService){
     this.getData();
     this.queryVal = ""
   }
 
+  /**
+   * 
+   * @param event Keypress on search on any key is reflected as an event
+   * @description updated the query value upon each keypress into the search bar
+   */
   updateSearch(event:KeyboardEvent):void {
     
     this.queryVal = this.searchVal.value!;
     this.page_no = 1
     this.getData()
-    // this.handlePageEvent()
   }
 
-  ngAfterViewInit(){
-    
-  }
+
   artData:any;
+
+  /**
+   * @description gets the data from the API by subscribing to observable returned from API call, called in the service
+   */
   getData(){
     // this.artData;
     this.artServ.getAPIData(this.queryVal, this.page_no, this.page_size).subscribe((data:any) => {
@@ -48,6 +52,12 @@ export class ListingComponent {
 
     });
   }
+
+  /**
+   * 
+   * @param event handles all page events on the paginator from Material
+   * @description updates the paginator with the page events occurred
+   */
   handlePageEvent(event: PageEvent){
     this.page_no = event.pageIndex + 1
     this.page_size = event.pageSize

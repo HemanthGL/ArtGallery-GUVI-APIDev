@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
-import { IMG_API_PRE, IMG_API_SUF } from 'src/constants/constants'
+import { IMG_API_PRE, IMG_API_SUF, NA } from 'src/constants/constants'
 
 
 @Component({
@@ -11,17 +11,21 @@ import { IMG_API_PRE, IMG_API_SUF } from 'src/constants/constants'
 })
 export class ArtViewComponent {
 
-  // use snapshot
+  
   imgURL?: string;
 
   artId: number;
 
   artData: any; // replace with interface
+
   constructor(private cartServ: CartService, private activeRoute: ActivatedRoute){
 
     this.artId = this.activeRoute.snapshot.params['id'];
   }
 
+  /**
+   * @description intializing the HTML template conditionally based on whether fields are null or not
+   */
   ngOnInit(){
     this.cartServ.getArtViewData(this.artId).subscribe((data: any) => {
       
@@ -53,33 +57,33 @@ export class ArtViewComponent {
 
       // Place of Origin
       if (!this.artData.place_of_origin){
-        this.artData.place_of_origin = 'Not Available'
+        this.artData.place_of_origin = NA
       }
       // Dimensions
       if (!this.artData.Dimensions){
-        this.artData.Dimensions = "Not Available"
+        this.artData.Dimensions = NA
       }
       // medium display
       if (!this.artData.medium_display){
-        this.artData.medium_display = "Not Available"
+        this.artData.medium_display = NA
       }
       // department_title
       if (!this.artData.department_title){
-        this.artData.department_title = "Not Available"
+        this.artData.department_title = NA
       }
       // artitst_title
 
       // publication_history
       if (!this.artData.publication_history){
-        this.artData.publication_history = "Not Available"
+        this.artData.publication_history = NA
       }
       // exhibition_history
       if (!this.artData.exhibition_history){
-        this.artData.exhibition_history = "Not Available"
+        this.artData.exhibition_history = NA
       }
       // credit_line
       if (!this.artData.credit_line){
-        this.artData.credit_line = "Not Available"
+        this.artData.credit_line = NA
       }
     }
 

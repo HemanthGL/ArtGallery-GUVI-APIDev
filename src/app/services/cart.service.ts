@@ -15,12 +15,12 @@ export class CartService {
 
   getArtViewData(id: number){
 
-    return this.http.get(this.url + id + "?fields=id,title,image_id,alt_image_ids,artist_display,place_of_origin,description");
+    return this.http.get(this.url + id + "?fields=id,title,image_id,alt_image_ids,artist_display,place_of_origin,description,thumbnail");
   }
 
   getFavData(id: number){
 
-    return this.http.get(this.url + id + "?fields=id,title,image_id,alt_image_ids,artist_display,place_of_origin");
+    return this.http.get(this.url + id + "?fields=id,title,image_id,alt_image_ids,artist_display,place_of_origin,thumbnail");
   }
 
   cartContent: Array<number>;

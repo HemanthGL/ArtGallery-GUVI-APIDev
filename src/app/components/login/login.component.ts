@@ -47,8 +47,6 @@ export class LoginComponent {
         this.router.navigate(['/'])
       }
     }
-
-    // this.router.navigate(['/users'])
   }
 
 

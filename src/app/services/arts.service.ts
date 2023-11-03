@@ -13,6 +13,6 @@ export class ArtsService {
   dataload:any
   getAPIData(searchq: string, page_no: number, page_size: number){
     
-    return this.http.get(this.url + "page=" + page_no + "&limit=" + page_size + "&fields=id,title,image_id,alt_image_ids,artist_display,place_of_origin&q=" + searchq)
+    return this.http.get(this.url + "page=" + page_no + "&limit=" + page_size + "&fields=id,title,image_id,alt_image_ids,artist_display,place_of_origin,thumbnail&q=" + searchq)
   }
 }

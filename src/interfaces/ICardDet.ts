@@ -3,5 +3,6 @@ export interface ICardDet{
     image_id: string,
     title: string,
     artist_display: string,
-    place_of_origin: string
+    place_of_origin: string,
+    thumbnail: { alt_text: string }
 }
