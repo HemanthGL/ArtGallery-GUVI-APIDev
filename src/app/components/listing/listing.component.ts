@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
+import { Observable, Observer } from 'rxjs';
 import { ArtsService } from 'src/app/services/arts.service';
 import { IMG_API_PRE, IMG_API_SUF } from 'src/constants/constants';
+import { IAPIResp } from 'src/interfaces/IAPIResp';
+import { ICardDet } from 'src/interfaces/ICardDet';
 
 @Component({
   selector: 'app-listing',
@@ -39,14 +42,14 @@ export class ListingComponent {
   }
 
 
-  artData:any;
+  artData!:Array<ICardDet>;
 
   /**
    * @description gets the data from the API by subscribing to observable returned from API call, called in the service
    */
   getData(){
     // this.artData;
-    this.artServ.getAPIData(this.queryVal, this.page_no, this.page_size).subscribe((data:any) => {
+    this.artServ.getAPIData(this.queryVal, this.page_no, this.page_size).subscribe((data: any) => {
       this.artData = data.data
       this.total = data.pagination.total
 

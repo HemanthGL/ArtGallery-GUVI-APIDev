@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
+import { IAPIResp } from 'src/interfaces/IAPIResp';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,23 @@ export class CartService {
   url = "https://api.artic.edu/api/v1/artworks/";
 
 
-  dataload:any
+  dataload!:IAPIResp;
 
+  /**
+   * 
+   * @param id unique ID of artworks
+   * @returns Observable which streams the API responce with metadata of the artwork
+   */
   getArtViewData(id: number){
 
-    return this.http.get(this.url + id + "?fields=id,title,image_id,alt_image_ids,artist_display,place_of_origin,description,thumbnail");
+    return this.http.get(this.url + id + "?fields=id,title,image_id,alt_image_ids,artist_display,place_of_origin,description,thumbnail,Dimensions,medium_display,department_title,publication_history,exhibition_history,credit_line");
   }
 
+  /**
+   * 
+   * @param id unique ID from favorites Array
+   * @returns metadata of artworks from Favorites
+   */
   getFavData(id: number){
 
     return this.http.get(this.url + id + "?fields=id,title,image_id,alt_image_ids,artist_display,place_of_origin,thumbnail");
@@ -40,6 +51,10 @@ export class CartService {
 
 
   // MOVE TO AUTH SERVICE
+  /**
+   * 
+   * @returns gives the favourites array
+   */
   getFavArray(): Array<number> {
     if (!this.auth.isLogIn){
       // alert('useer no log!!')
@@ -50,6 +65,11 @@ export class CartService {
   }
 
   // FIND INDEX IN FAV ARRAY
+  /**
+   * 
+   * @param id unique artwork ID
+   * @returns index of artwork in favorites array
+   */
   findIdxInFav(id: number): number{
     if (this.auth.isLogIn){
       let idx: number = this.auth.userDetails!.favourites.findIndex((ele: number) => ele == id)
@@ -59,6 +79,11 @@ export class CartService {
   }
 
   // USE USERDETAILS INTERFACE TO CHECK
+  /**
+   * 
+   * @param id unique artwork ID
+   * @returns whether artwork is in favorites array or not
+   */
   checkInFav(id: number): boolean{
     if (!this.auth.isLogIn){
       // alert('User Not log In!!')
@@ -70,13 +95,14 @@ export class CartService {
       else 
         return true;
     }
-    // if (this.cartContent == null)
-    //   return false
-    // let idx = this.cartContent.findIndex((e : number) => e == id)
-    // return (idx == -1) ? false : true;
   }
 
   // USER USERDETAILS TO CHECK
+  /**
+   * 
+   * @param id unique artworks ID
+   * @returns toggle to add/remove from Favorites
+   */
   toggleToFav(id : number): boolean{ 
 
     if (!this.auth.isLogIn){
@@ -92,22 +118,6 @@ export class CartService {
       this.auth.reloadToStorage();
       return true;
     }
-
-    // let favContent: Array<number> = this.getFavArray()
-
-    // let idx: number = favContent.findIndex((ele: number) => ele == id)
-
-    // if (idx == -1){
-    //   if (check){
-    //     favContent.push(id)
-    //   }
-    // } else {
-    //   if (!check){
-    //     favContent.splice(idx, 1);
-    //   }
-    // }
-
-    // localStorage.setItem('art-cart', JSON.stringify(favContent))
   }
 
   

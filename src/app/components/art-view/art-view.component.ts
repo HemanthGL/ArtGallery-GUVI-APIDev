@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { IMG_API_PRE, IMG_API_SUF, NA } from 'src/constants/constants'
+import { IAPIResp } from 'src/interfaces/IAPIResp';
+import { ICardDet } from 'src/interfaces/ICardDet';
+import { IUserDet } from 'src/interfaces/IUserDet';
 
 
 @Component({
@@ -16,7 +19,7 @@ export class ArtViewComponent {
 
   artId: number;
 
-  artData: any; // replace with interface
+  artData!: ICardDet; // replace with interface
 
   constructor(private cartServ: CartService, private activeRoute: ActivatedRoute){
 
@@ -29,14 +32,14 @@ export class ArtViewComponent {
   ngOnInit(){
     this.cartServ.getArtViewData(this.artId).subscribe((data: any) => {
       
-      let parsedData: any = data.data;
+      let parsedData: ICardDet = data.data;
       this.artData = parsedData;
 
       // Image URL
       this.imgURL = IMG_API_PRE + this.artData.image_id + IMG_API_SUF
 
       // Art Description
-      let descrip: string = this.artData.description
+      let descrip: string | undefined = this.artData.description
       
       if (descrip != null){
         descrip = descrip.replace('\n', '<br>')
